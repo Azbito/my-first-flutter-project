@@ -1,4 +1,5 @@
 import 'package:first_project/app_controller.dart';
+import 'package:first_project/theme_switch.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,21 +13,32 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   int counter = 0;
-  bool test = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title:
-                const Text('Home Page', style: TextStyle(color: Colors.white))),
-        body: Center(
-            child: Switch(
-                value: AppController.instance.isDarkTheme,
-                onChanged: (value) {
-                  AppController.instance.changeTheme();
-                  setState(() {});
-                })),
+          title: const Text('Home Page', style: TextStyle(color: Colors.white)),
+          actions: [ThemeSwitch()],
+        ),
+        body: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(30),
+                    decoration: BoxDecoration(
+                        color: Colors.green.shade500,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: (Text(
+                      'Contador: $counter',
+                      style: const TextStyle(fontSize: 30, color: Colors.white),
+                    )),
+                  )
+                ])),
         floatingActionButton: FloatingActionButton(
             foregroundColor: Colors.white,
             onPressed: () {
