@@ -28,6 +28,13 @@ class HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(999),
+                    child: Image.network(
+                      'https://media.discordapp.net/attachments/1098600696938516511/1139035996500009010/image.png',
+                      width: 150,
+                    ),
+                  ),
                   Container(
                     padding: const EdgeInsets.all(30),
                     decoration: BoxDecoration(
